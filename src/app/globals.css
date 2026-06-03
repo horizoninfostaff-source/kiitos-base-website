@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-kb-black: #2B2B2B;
+  --color-kb-yellow: #FFB300;
+  --color-kb-yellow-hover: #E5A000;
+  --color-kb-yellow-light: #FFF8E0;
+  --color-kb-yellow-pale: #FFFDF0;
+  --color-kb-red: #FF6B6B;
+  --color-kb-red-light: #FFF0F0;
+  --color-kb-blue: #64B5F6;
+  --color-kb-blue-light: #EBF5FD;
+  --color-kb-green: #81C784;
+  --color-kb-green-light: #EEF8EE;
+  --color-kb-purple: #CE93D8;
+  --color-kb-purple-light: #F8F0FA;
+  --color-kb-gray: #5A5A5A;
+  --color-kb-gray-light: #999999;
+  --color-kb-bg: #FFFDF0;
+  --font-sans: var(--font-noto);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #2B2B2B;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(circle, #FFB300 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(8deg); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(-6deg); }
+}
+@keyframes float-c {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-12px) scale(1.1); }
+}
+@keyframes float-d {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33% { transform: translateY(-10px) rotate(5deg) scale(1.05); }
+  66% { transform: translateY(-18px) rotate(-3deg) scale(0.97); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.08); }
+}
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+}
+
+.animate-float-a { animation: float-a 3.6s ease-in-out infinite; }
+.animate-float-b { animation: float-b 4.3s ease-in-out infinite; }
+.animate-float-c { animation: float-c 5.2s ease-in-out infinite; }
+.animate-float-d { animation: float-d 6.0s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 28s linear infinite; }
+.animate-glow-pulse { animation: glow-pulse 3.2s ease-in-out infinite; }
+.animate-scroll-bounce { animation: scroll-bounce 1.8s ease-in-out infinite; }
