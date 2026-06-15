@@ -1,7 +1,8 @@
+import LoadingAnimation from '@/components/home/LoadingAnimation'
 import Hero from '@/components/home/Hero'
-import StatsBar from '@/components/home/StatsBar'
-import Features from '@/components/home/Features'
 import MessageSection from '@/components/home/MessageSection'
+import Features from '@/components/home/Features'
+import PhotoGallery from '@/components/home/PhotoGallery'
 import ProgramSection from '@/components/home/ProgramSection'
 import FlowSection from '@/components/home/FlowSection'
 import DailySchedule from '@/components/home/DailySchedule'
@@ -12,33 +13,36 @@ import WaveDivider from '@/components/ui/WaveDivider'
 export default function HomePage() {
   return (
     <>
-      {/* bg-kb-bg (#FFFDF0) */}
+      {/* Loading animation — self-contained, unmounts after sequence completes */}
+      <LoadingAnimation />
+
+      {/* Hero — full viewport photo, transparent header overlays here */}
       <Hero />
-      <WaveDivider bgColor="bg-[#FFFDF0]" fillColor="#ffffff" />
 
-      {/* bg-white */}
-      <StatsBar />
-      <Features />
-      <WaveDivider bgColor="bg-white" fillColor="#FFFDF0" />
-
-      {/* bg-kb-bg — philosophy quote */}
+      {/* Philosophy — editorial white section */}
       <MessageSection />
-      <WaveDivider bgColor="bg-[#FFFDF0]" fillColor="#ffffff" />
 
-      {/* bg-white */}
+      {/* Features — photo × text alternating rows */}
+      <Features />
+
+      {/* Photo Gallery */}
+      <PhotoGallery />
+
+      {/* Programs — card grid */}
+      <WaveDivider bgColor="bg-kb-bg" fillColor="#ffffff" />
       <ProgramSection />
-      <WaveDivider bgColor="bg-white" fillColor="#FFFDF0" />
 
-      {/* bg-kb-bg */}
+      {/* Flow */}
+      <WaveDivider bgColor="bg-white" fillColor="#FFFDF0" />
       <FlowSection />
       <WaveDivider bgColor="bg-[#FFFDF0]" fillColor="#ffffff" />
 
-      {/* bg-white */}
+      {/* Daily + Recruit */}
       <DailySchedule />
       <RecruitBanner />
-      <WaveDivider bgColor="bg-white" fillColor="#FFB300" />
+      <WaveDivider bgColor="bg-kb-bg" fillColor="#FFB300" />
 
-      {/* bg-kb-yellow */}
+      {/* CTA */}
       <ContactCTA />
     </>
   )

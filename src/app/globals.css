@@ -73,3 +73,9 @@ body {
 .animate-spin-slow { animation: spin-slow 28s linear infinite; }
 .animate-glow-pulse { animation: glow-pulse 3.2s ease-in-out infinite; }
 .animate-scroll-bounce { animation: scroll-bounce 1.8s ease-in-out infinite; }
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker 28s linear infinite; }

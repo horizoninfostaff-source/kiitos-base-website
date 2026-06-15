@@ -3,38 +3,38 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
+const pillars = [
+  { num: '01', title: '褒め育', desc: '小さな「できた」をたくさん褒めて自己肯定感を育む' },
+  { num: '02', title: '個別対応', desc: 'お子さまの発達段階・特性に合わせたオーダーメイド支援' },
+  { num: '03', title: '就学準備', desc: '5領域をカバーし小学校入学への土台をつくる' },
+]
+
 export default function MessageSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="py-32 bg-kb-bg relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-kb-yellow/12 rounded-full blur-[90px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-kb-green/8 rounded-full blur-[60px] pointer-events-none" />
-      <div className="dot-pattern absolute inset-0 opacity-[0.05] pointer-events-none" />
+    <section ref={ref} className="py-32 bg-white relative overflow-hidden">
+      {/* Large background watermark */}
+      <span className="absolute text-[18rem] font-black text-yellow-50 leading-none select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none">
+        kiitos!
+      </span>
 
-      {/* Floating decorative */}
-      <span className="absolute top-[18%] left-[7%] text-5xl opacity-15 select-none pointer-events-none animate-float-a" style={{ animationDelay: '0.2s' }}>✨</span>
-      <span className="absolute top-[25%] right-[9%] text-5xl opacity-15 select-none pointer-events-none animate-float-b" style={{ animationDelay: '1.1s' }}>⭐</span>
-      <span className="absolute bottom-[20%] left-[11%] text-4xl opacity-15 select-none pointer-events-none animate-float-c" style={{ animationDelay: '0.7s' }}>🌟</span>
-      <span className="absolute bottom-[25%] right-[7%] text-4xl opacity-15 select-none pointer-events-none animate-float-d" style={{ animationDelay: '1.6s' }}>💫</span>
-
-      <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-kb-yellow font-bold tracking-widest text-sm mb-8"
+          className="text-kb-yellow font-bold tracking-widest text-sm mb-10"
         >
           OUR PHILOSOPHY
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 55 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.85, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="text-5xl sm:text-6xl md:text-7xl font-black text-kb-black leading-[1.3] mb-10"
+          className="text-5xl sm:text-6xl md:text-7xl font-black text-kb-black leading-[1.25] mb-10"
         >
           「できた！」が、<br />
           <span className="text-kb-yellow">自信になる。</span>
@@ -52,12 +52,28 @@ export default function MessageSection() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
+          initial={{ scaleX: 0 }}
           animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 0.9, delay: 0.45, ease: 'easeOut' }}
           style={{ transformOrigin: 'center' }}
-          className="mt-14 mx-auto w-24 h-1.5 bg-kb-yellow rounded-full"
+          className="mt-12 mb-20 mx-auto w-24 h-1.5 bg-kb-yellow rounded-full"
         />
+
+        {/* 3 pillars */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+        >
+          {pillars.map((p) => (
+            <div key={p.num} className="flex flex-col items-center">
+              <span className="text-7xl font-black text-yellow-100 leading-none mb-2">{p.num}</span>
+              <h3 className="text-xl font-black text-kb-black mb-2">{p.title}</h3>
+              <p className="text-kb-gray text-sm leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

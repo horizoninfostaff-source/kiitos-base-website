@@ -9,14 +9,14 @@ export default function RecruitBanner() {
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-kb-bg">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number] }}
-          className="bg-white rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-center gap-10 border-2 border-yellow-100"
+          className="bg-white rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-center gap-10 shadow-xl shadow-yellow-100/60 border border-yellow-100"
         >
           <div className="flex-1">
             <span className="inline-block bg-kb-yellow text-white text-xs font-bold px-3 py-1 rounded-full mb-4">RECRUIT</span>
