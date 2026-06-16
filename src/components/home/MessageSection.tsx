@@ -14,13 +14,14 @@ export default function MessageSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="py-32 bg-white relative overflow-hidden">
+    <section id="philosophy" ref={ref} className="py-20 md:py-28 bg-transparent relative overflow-hidden">
       {/* Large background watermark */}
-      <span className="absolute text-[18rem] font-black text-yellow-50 leading-none select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none">
+      <span className="absolute text-[18rem] font-black text-yellow-100/50 leading-none select-none top-[8%] left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">
         kiitos!
       </span>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="spread text-center px-7 py-14 sm:px-12 md:px-16 md:py-20">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -74,6 +75,7 @@ export default function MessageSection() {
             </div>
           ))}
         </motion.div>
+        </div>
       </div>
     </section>
   )

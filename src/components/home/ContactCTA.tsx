@@ -9,7 +9,9 @@ export default function ContactCTA() {
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-24 bg-kb-yellow relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-28 bg-transparent">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="spread-warm relative overflow-hidden rounded-[2.25rem] px-6 py-16 sm:px-12 md:px-16 md:py-20">
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/15 rounded-full blur-3xl" />
       <div className="dot-pattern absolute inset-0 opacity-[0.08]" />
@@ -61,6 +63,8 @@ export default function ContactCTA() {
             </a>
           </div>
         </motion.div>
+      </div>
+        </div>
       </div>
     </section>
   )

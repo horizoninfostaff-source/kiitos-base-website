@@ -18,8 +18,9 @@ export default function DailySchedule() {
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="daily" className="py-20 md:py-24 bg-transparent">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="spread px-6 py-12 sm:px-12 md:py-16">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 60 }}
@@ -65,6 +66,7 @@ export default function DailySchedule() {
           >
             詳しい一日の流れを見る →
           </Link>
+        </div>
         </div>
       </div>
     </section>

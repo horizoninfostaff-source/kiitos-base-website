@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -16,10 +17,14 @@ const tickerItems = [
 const chips = ['2024年11月開設', '月〜金 受け入れ', '2〜6歳対象', '見学無料']
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background photo */}
-      <div className="absolute inset-0">
+    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Background photo (gentle parallax — scaled so the drift never reveals an edge) */}
+      <motion.div className="absolute inset-0 scale-125" style={{ y: bgY }}>
         <Image
           src="https://images.pexels.com/photos/8613057/pexels-photo-8613057.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1"
           alt=""
@@ -31,7 +36,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-      </div>
+      </motion.div>
 
       {/* Main content */}
       <div className="relative z-10 flex-1 flex items-center">

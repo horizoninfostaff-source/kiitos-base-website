@@ -1,4 +1,6 @@
 import LoadingAnimation from '@/components/home/LoadingAnimation'
+import WorldBackdrop from '@/components/home/WorldBackdrop'
+import GrowingThread from '@/components/ui/GrowingThread'
 import Hero from '@/components/home/Hero'
 import MessageSection from '@/components/home/MessageSection'
 import Features from '@/components/home/Features'
@@ -8,7 +10,6 @@ import FlowSection from '@/components/home/FlowSection'
 import DailySchedule from '@/components/home/DailySchedule'
 import RecruitBanner from '@/components/home/RecruitBanner'
 import ContactCTA from '@/components/home/ContactCTA'
-import WaveDivider from '@/components/ui/WaveDivider'
 
 export default function HomePage() {
   return (
@@ -16,34 +17,26 @@ export default function HomePage() {
       {/* Loading animation — self-contained, unmounts after sequence completes */}
       <LoadingAnimation />
 
-      {/* Hero — full viewport photo, transparent header overlays here */}
-      <Hero />
+      {/* One continuous sky-to-earth world living behind every section */}
+      <WorldBackdrop />
 
-      {/* Philosophy — editorial white section */}
-      <MessageSection />
+      <div className="relative">
+        {/* The growing root/sprout thread that draws itself down the page */}
+        <GrowingThread />
 
-      {/* Features — photo × text alternating rows */}
-      <Features />
-
-      {/* Photo Gallery */}
-      <PhotoGallery />
-
-      {/* Programs — card grid */}
-      <WaveDivider bgColor="bg-kb-bg" fillColor="#ffffff" />
-      <ProgramSection />
-
-      {/* Flow */}
-      <WaveDivider bgColor="bg-white" fillColor="#FFFDF0" />
-      <FlowSection />
-      <WaveDivider bgColor="bg-[#FFFDF0]" fillColor="#ffffff" />
-
-      {/* Daily + Recruit */}
-      <DailySchedule />
-      <RecruitBanner />
-      <WaveDivider bgColor="bg-kb-bg" fillColor="#FFB300" />
-
-      {/* CTA */}
-      <ContactCTA />
+        {/* All content floats above the world — no flat full-width colour blocks */}
+        <div className="relative z-10">
+          <Hero />
+          <MessageSection />
+          <Features />
+          <PhotoGallery />
+          <ProgramSection />
+          <FlowSection />
+          <DailySchedule />
+          <RecruitBanner />
+          <ContactCTA />
+        </div>
+      </div>
     </>
   )
 }

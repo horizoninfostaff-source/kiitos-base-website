@@ -19,7 +19,7 @@ const programs = [
     gradFrom: '#64B5F6',
     gradTo: '#38BDF8',
     light: 'bg-kb-blue-light',
-    desc: '集団の中でお友達との関わりを増やします。「かして」「どうぞ」など場面に合った言葉を使い、円滑な人間関係を育みます。',
+    desc: '集団の中でお友達との関わりを増やします。場面に合った言葉を使い、円滑な人間関係を育みます。',
   },
   {
     icon: '✂️',
@@ -52,7 +52,7 @@ export default function ProgramSection() {
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-24 bg-white">
+    <section id="program" className="py-24 bg-transparent overflow-x-clip">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -75,26 +75,32 @@ export default function ProgramSection() {
           {programs.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 60 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.08 + i * 0.1 }}
-              className="rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-4 transition-all duration-300 group cursor-default"
+              initial={{ opacity: 0, x: i % 2 === 0 ? -64 : 64, y: 44, rotate: i % 2 === 0 ? -3.5 : 3.5 }}
+              animate={isInView ? { opacity: 1, x: 0, y: 0, rotate: 0 } : {}}
+              transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.08 + i * 0.09 }}
+              className="h-full cursor-default"
             >
-              {/* Gradient top with big icon */}
-              <div
-                className="relative flex items-center justify-center aspect-square overflow-hidden"
-                style={{ background: `linear-gradient(135deg, ${p.gradFrom}, ${p.gradTo})` }}
-              >
-                <span className="text-6xl group-hover:scale-125 transition-transform duration-300 drop-shadow-md">
-                  {p.icon}
-                </span>
-                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
-              </div>
+              {/* hover lives on this inner element so it never fights framer's entrance transform */}
+              <div className="group relative flex h-full flex-col rounded-3xl overflow-hidden shadow-[0_22px_48px_-26px_rgba(96,72,20,0.5)] transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-6 hover:scale-[1.06] hover:z-10 hover:shadow-[0_48px_84px_-26px_rgba(96,72,20,0.62)]">
+                {/* Gradient top with big icon */}
+                <div
+                  className="relative flex items-center justify-center aspect-square overflow-hidden"
+                  style={{ background: `linear-gradient(135deg, ${p.gradFrom}, ${p.gradTo})` }}
+                >
+                  <span className="block text-6xl drop-shadow-md transition-transform duration-300 group-hover:scale-[1.35]">
+                    <span className="block will-change-transform group-hover:[animation:kb-wiggle_0.6s_ease-in-out]">
+                      {p.icon}
+                    </span>
+                  </span>
+                  {/* shine sweep across the gradient on hover */}
+                  <div className="pointer-events-none absolute inset-0 -translate-x-[130%] group-hover:translate-x-[130%] transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+                </div>
 
-              {/* Light colored bottom */}
-              <div className={`${p.light} px-4 py-5`}>
-                <p className="font-black text-kb-black text-lg mb-2 text-center">{p.title}</p>
-                <p className="text-xs text-kb-gray leading-relaxed">{p.desc}</p>
+                {/* Light colored bottom */}
+                <div className={`${p.light} px-4 py-5 flex-1`}>
+                  <p className="font-black text-kb-black text-lg mb-2 text-center">{p.title}</p>
+                  <p className="text-xs text-kb-gray leading-relaxed">{p.desc}</p>
+                </div>
               </div>
             </motion.div>
           ))}

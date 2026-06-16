@@ -39,6 +39,12 @@ export default function LoadingAnimation() {
   const [show, setShow] = useState(true)
 
   useEffect(() => {
+    // Self-review / screenshot escape hatch: ?nointro skips the intro entirely.
+    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('nointro')) {
+      const t = setTimeout(() => setShow(false), 0)
+      return () => clearTimeout(t)
+    }
+
     document.body.style.overflow = 'hidden'
 
     const timers = [

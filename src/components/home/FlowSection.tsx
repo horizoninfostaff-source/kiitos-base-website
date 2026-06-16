@@ -36,7 +36,7 @@ export default function FlowSection() {
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-24 bg-kb-bg relative overflow-hidden">
+    <section id="flow" className="py-24 bg-transparent relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-kb-yellow/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-kb-green/20 rounded-full blur-3xl" />
 
@@ -64,7 +64,7 @@ export default function FlowSection() {
               transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number], delay: i * 0.1 }}
               className="flex flex-col items-center text-center relative z-10"
             >
-              <div className="w-28 h-28 bg-white border-4 border-kb-yellow rounded-3xl flex flex-col items-center justify-center shadow-md mb-5">
+              <div className="w-28 h-28 bg-white border-4 border-kb-yellow rounded-3xl flex flex-col items-center justify-center shadow-[0_18px_36px_-20px_rgba(96,72,20,0.45)] mb-5">
                 <span className="text-4xl">{step.icon}</span>
                 <span className="text-xs font-black text-kb-yellow mt-1">{step.no}</span>
               </div>

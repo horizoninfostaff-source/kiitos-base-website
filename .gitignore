@@ -33,6 +33,12 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# self-review screenshots / progress notes (local only)
+/.review/
+/.playwright-mcp/
+/scripts/shot.mjs
+.claude/settings.local.json
+
 # vercel
 .vercel
 
