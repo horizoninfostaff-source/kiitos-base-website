@@ -2,7 +2,9 @@ import FadeIn from '@/components/ui/FadeIn'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'アクセス | kiitos!BASE',
+  title: 'アクセス',
+  description:
+    '千葉県船橋市前貝塚町1007-6。東武アーバンパークライン塚田駅から徒歩5分。kiitos!BASEへのアクセス・地図のご案内。',
 }
 
 export default function AccessPage() {

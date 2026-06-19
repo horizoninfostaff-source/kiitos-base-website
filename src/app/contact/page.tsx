@@ -2,7 +2,9 @@ import FadeIn from '@/components/ui/FadeIn'
 import ContactForm from './ContactForm'
 
 export const metadata = {
-  title: 'お問い合わせ | kiitos!BASE',
+  title: 'お問い合わせ',
+  description:
+    '見学・体験・ご利用のご相談はこちら。kiitos!BASE（児童発達支援）へお気軽にお問い合わせください。',
 }
 
 export default function ContactPage() {

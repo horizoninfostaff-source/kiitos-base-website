@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 const tickerItems = [
   '🌱 見学・相談 無料',
@@ -88,12 +89,14 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.55 }}
               className="mt-10 flex flex-wrap gap-4"
             >
-              <Link
-                href="/contact"
-                className="px-10 py-4 bg-kb-yellow text-white font-black text-base rounded-full hover:bg-kb-yellow-hover transition-all shadow-xl shadow-yellow-500/30 hover:scale-105 duration-200"
-              >
-                見学・相談を申し込む →
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className="inline-block px-10 py-4 bg-kb-yellow text-white font-black text-base rounded-full hover:bg-kb-yellow-hover transition-all shadow-xl shadow-yellow-500/30 hover:scale-105 duration-200"
+                >
+                  見学・相談を申し込む →
+                </Link>
+              </MagneticButton>
               <a
                 href="tel:0474011205"
                 className="px-10 py-4 bg-white/15 backdrop-blur-sm border-2 border-white/50 text-white font-bold text-base rounded-full hover:bg-white/25 transition-all duration-200"

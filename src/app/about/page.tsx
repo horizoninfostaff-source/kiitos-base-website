@@ -3,7 +3,9 @@ import PhotoPlaceholder from '@/components/ui/PhotoPlaceholder'
 import Link from 'next/link'
 
 export const metadata = {
-  title: '事業所について | kiitos!BASE',
+  title: '事業所について',
+  description:
+    'kiitos!BASEが大切にしている理念。2〜6歳の未就学児の心身の根っこを育て、お子さまの「その子らしさ」をすくすく伸ばす療育を行います。',
 }
 
 const values = [

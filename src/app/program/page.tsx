@@ -3,7 +3,9 @@ import PhotoPlaceholder from '@/components/ui/PhotoPlaceholder'
 import Link from 'next/link'
 
 export const metadata = {
-  title: '活動プログラム | kiitos!BASE',
+  title: '活動プログラム',
+  description:
+    '運動・あそび・学びを通じて、お子さまの発達の根っこを育てる kiitos!BASE の活動プログラムをご紹介します。',
 }
 
 const programs = [

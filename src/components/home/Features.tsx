@@ -3,11 +3,15 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+import HoverInViewIcon from '@/components/ui/HoverInViewIcon'
+import StarIcon from '@/icons/star-icon'
+import UnorderedListIcon from '@/icons/unordered-list-icon'
+import TargetIcon from '@/icons/target-icon'
 
 const features = [
   {
     no: '01',
-    icon: '🌟',
+    IconComp: StarIcon,
     photo: 'https://images.pexels.com/photos/8535585/pexels-photo-8535585.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&dpr=1',
     photoAlt: '先生が子どもと一緒に丁寧に取り組む療育の様子',
     bgColor: 'bg-[#FFEBB8]',
@@ -20,7 +24,7 @@ const features = [
   },
   {
     no: '02',
-    icon: '📋',
+    IconComp: UnorderedListIcon,
     photo: 'https://images.pexels.com/photos/8422148/pexels-photo-8422148.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&dpr=1',
     photoAlt: '子どもたちが集団で製作活動に取り組む様子',
     bgColor: 'bg-[#D5E8FA]',
@@ -33,7 +37,7 @@ const features = [
   },
   {
     no: '03',
-    icon: '🎯',
+    IconComp: TargetIcon,
     photo: 'https://images.pexels.com/photos/8535230/pexels-photo-8535230.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&dpr=1',
     photoAlt: '子どもたちが多彩な活動を楽しむ様子',
     bgColor: 'bg-[#D3EDD8]',
@@ -85,7 +89,7 @@ function FeatureRow({ f, i }: { f: Feature; i: number }) {
 
         {/* Text side */}
         <div className={`${f.bgColor} flex flex-col justify-center p-10 lg:p-16 ${isOdd ? 'lg:order-first' : ''}`}>
-          <span className="text-4xl mb-4">{f.icon}</span>
+          <HoverInViewIcon icon={f.IconComp} className={`w-10 h-10 mb-4 ${f.accentColor}`} />
           <p className={`text-xs font-bold tracking-wider mb-3 ${f.accentColor}`}>{f.subtitle}</p>
           <h3 className="text-3xl font-black text-kb-black mb-4 leading-snug">{f.title}</h3>
           <p className="text-kb-gray leading-relaxed mb-7 text-base max-w-md">{f.desc}</p>

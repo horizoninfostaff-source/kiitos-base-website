@@ -2,7 +2,9 @@ import FadeIn from '@/components/ui/FadeIn'
 import Link from 'next/link'
 
 export const metadata = {
-  title: '一日の流れ | kiitos!BASE',
+  title: '一日の流れ',
+  description:
+    'kiitos!BASEで未就学のお子さまが過ごす一日の流れをご紹介します。',
 }
 
 const schedule = [

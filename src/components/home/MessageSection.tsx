@@ -2,6 +2,8 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import LottieSignature from '@/components/ui/LottieSignature'
+import treeData from '@/lottie/base-tree.json'
 
 const pillars = [
   { num: '01', title: '褒め育', desc: '小さな「できた」をたくさん褒めて自己肯定感を育む' },
@@ -22,6 +24,14 @@ export default function MessageSection() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="spread text-center px-7 py-14 sm:px-12 md:px-16 md:py-20">
+        {/* Signature: the kiitos!BASE tree growing from its roots — the philosophy, alive */}
+        <LottieSignature
+          animationData={treeData}
+          idleStart={180}
+          ariaLabel="根から育つ木のアニメーション"
+          className="mx-auto w-40 sm:w-48 md:w-52 -mt-2 mb-1"
+        />
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

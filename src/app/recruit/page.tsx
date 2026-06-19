@@ -2,7 +2,9 @@ import FadeIn from '@/components/ui/FadeIn'
 import Link from 'next/link'
 
 export const metadata = {
-  title: '採用情報 | kiitos!BASE',
+  title: '採用情報',
+  description:
+    '児童発達支援管理責任者（サビ管）ほか、kiitos!BASEで一緒に働く仲間を募集しています。',
 }
 
 const positions = [
